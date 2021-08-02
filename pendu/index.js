@@ -1,7 +1,7 @@
-const gameState = Object.freeze({ IDLE: 0, PLAYING: 1 })
-const guessOutcome = Object.freeze({ GOOD_GUESS: 0, BAD_GUESS: 1, ALREADY_GUESSED: 2, })
+const gameState = require("./const").gameState
+const guessOutcome = require("./const").guessOutcome
 
-class Pendu {
+module.exports = class Pendu {
     constructor() {
         this.state = gameState.IDLE;
         this.answer = "";
@@ -62,10 +62,4 @@ class Pendu {
         console.log(this.lifesLeft)
         return this.gameWon() || this.lifesLeft <= 0
     }
-}
-
-module.exports = {
-    Pendu,
-    guessOutcome,
-    gameState
 }

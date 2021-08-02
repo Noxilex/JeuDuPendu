@@ -1,10 +1,10 @@
 const Discord = require('discord.js')
 require('dotenv').config()
 const client = new Discord.Client();
-const PenduObject = require('./Pendu')
-const Pendu = PenduObject.Pendu;
-const guessOutcome = PenduObject.guessOutcome;
-const gameState = PenduObject.gameState;
+const Pendu = require('./pendu');
+const constants = require("./pendu/const");
+const guessOutcome = constants.guessOutcome;
+const gameState = constants.gameState;
 
 let penduGames = []
 
@@ -78,13 +78,14 @@ client.on('message', msg => {
                     msg.reply("Aucun mot n'a été écrit, comment je fais moi ? 🤨\n .oneshot <mot>")
                 }
             } else {
-                msg.reply("Aucun partie ne se joue en ce moment.🙁\n Lances-en une avec .pendu <mot> ! 👌")
+                msg.reply("Aucune partie ne se joue en ce moment.🙁\n Lances-en une avec .pendu <mot> ! 👌")
             }
         } else if (command == "help") {
             msg.reply("Liste des règles:\n.pendu <mot> - Lance une nouvelle partie avec le mot\n.guess <lettre> - Devine une lettre du mot (-1 si faux)\n.oneshot <mot> - Devine le mot entier (-2 si faux)\n Alias:\n.pendu -> .p\n.guess -> .g\n.oneshot -> .os")
         }
         else {
-            msg.reply("Aucun commande n'a été trouvée avec ce nom: " + command + ". T'es sûre qu'elle existe ? 🤔")
+            //No command found
+            //msg.reply("Aucune commande n'a été trouvée avec ce nom: " + command + ". T'es sûre qu'elle existe ? 🤔")
         }
     }
 })
