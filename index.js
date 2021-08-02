@@ -1,5 +1,7 @@
 const Discord = require('discord.js')
-require('dotenv').config()
+if(process.env.environment != "production"){
+    require('dotenv').config();
+}
 const client = new Discord.Client();
 const Pendu = require('./pendu');
 const constants = require("./pendu/const");
