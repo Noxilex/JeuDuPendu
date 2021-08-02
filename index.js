@@ -103,5 +103,4 @@ function checkGameOver(pendu, response) {
     }
     return response;
 }
-
 client.login(process.env.BOT_TOKEN)
