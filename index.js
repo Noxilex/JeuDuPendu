@@ -10,6 +10,10 @@ const gameState = constants.gameState;
 
 let penduGames = []
 
+client.on('ready', () => {
+    console.log('The client is ready !')
+})
+
 client.on('message', msg => {
     let guildID = msg.guild.id;
     if (!Object.keys(penduGames).includes(guildID)) {
